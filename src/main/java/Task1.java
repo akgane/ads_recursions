@@ -41,7 +41,9 @@ public class Task1 {
 //        }
 
         //8
-        System.out.println(xSequences(2, 3));
+        int n = 3;
+        int k = 3;
+        xSequences(n, k, 0, new int[n]);
 
         //9
 //        char[] input = new char[]{'i', 'o', 'x'};
@@ -117,12 +119,16 @@ public class Task1 {
         return spiral;
     }
 
-    /*
-    xSequences(n, k, length, seq)
-        
-     */
-    static String xSequences(int n, int k){
-        return "TODO";
+    static void xSequences(int n, int k, int len, int[] seq){
+        if(len == seq.length){
+            for (int i : seq) System.out.print(i + " ");
+            System.out.println();
+            return;
+        }
+        for(int i = 1; i <= k; i++){
+            seq[len] = i;
+            xSequences(n, k, len + 1, seq.clone());
+        }
     }
 
     static void outputSequence(int n, int k){
